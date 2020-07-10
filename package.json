@@ -5,12 +5,12 @@
   "proxy": "http://localhost:5000",
   "dependencies": {
     "axios": "^0.19.2",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-scripts": "^3.4.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "^3.4.1"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.19.4"
   },
   "scripts": {
     "start": "react-scripts build && node server/server.js",
