@@ -4,9 +4,6 @@ import GalleryItem from '../GalleryItem/GalleryItem';
 
 class GalleryList extends Component {
 
-  state = {
-
-  }
   componentDidMount() {
     //DO stuff on load;
   }
@@ -15,6 +12,10 @@ class GalleryList extends Component {
   render() {
     return (
       <>
+      {this.props.pic.map( eachItem =>
+                <GalleryItem key={eachItem.id}
+                eachItem={eachItem}
+                clickHandler={this.props.clickHandler} />)}
       {/* Setup map to go through array of gallery items */}
       </>
     );

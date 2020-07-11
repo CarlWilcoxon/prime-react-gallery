@@ -2,8 +2,8 @@
   text-align: center;
 }
 
-.App > img {
-  width: 100px;
+img {
+/*weight: 100px;*/
   height: 100px;
 }
 
