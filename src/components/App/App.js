@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import GalleryItem from '../GalleryItem/GalleryItem';
 
 class App extends Component {
 
   state = {
-
+    galleryArray: []
   }
 
   componentDidMount() {
@@ -17,10 +18,23 @@ class App extends Component {
     axios.get('/gallery')
     .then( (response) => {
       console.log( 'Got pics', response.data);
-      //this.setState({ TODO store the pictures })
+      this.setState({ galleryArray: response.data });
     }).catch ( (err) => {
-      console.log( 'failed to get pictures', err );
+      console.log( 'Failed to get pictures', err );
     })
+  }
+
+  likePic = (event) => {
+
+    console.log( event.target ); //.prop.id
+    // let picID = event.target.prop.id;
+
+    // axios.put( '/like/' + picID )
+    // .then( (response) => {
+    //   console.log( 'Pic liked ', picID );
+    // }).catch ( (err) => {
+    //   console.log( 'Failed to like picture', err);
+    // })
   }
 
   render() {
@@ -31,7 +45,7 @@ class App extends Component {
         </header>
         <br/>
         <p>Gallery goes here</p>
-        <img src="images/goat_small.jpg" alt="a small goat"/>
+        <GalleryItem pic={this.state.galleryArray[0]} clickHandler={this.likePic}/>
       </div>
     );
   }

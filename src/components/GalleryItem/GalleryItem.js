@@ -15,6 +15,7 @@ class GalleryItem extends Component {
   render() {
     return (
       <>
+        <img src={this.props.pic.path} alt={this.props.pic.description} onClick={this.props.clickHandler}/>
       {/* Setup 'template' for gallery item display */}
       </>
     );
