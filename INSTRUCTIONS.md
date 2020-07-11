@@ -23,11 +23,11 @@ Between the server and client, you'll need two terminal tabs! Because we're usin
 
 ## BASE MODE
 
-For this project you will create a gallery page to share pictures of things that are important to you. Visitors can click on an image to see a description and use a button to "like" an image. 
+For this project you will create a gallery page to share pictures of things that are important to you. Visitors can click on an image to see a description and use a button to "like" an image.
 
 To practice passing values through `props` in React, you will build the gallery using mulitple components - an `App`, `GalleryList`, and `GalleryItem`.
 
-- `App` - represents the overall application or site 
+- `App` - represents the overall application or site
 - `GalleryList` - represents the gallery of images. By componentizing, we could reuse this component in different applications
 - `GalleryItem` - represents a single image in the gallery with the ability to click the image to toggle between image and description as well as the ability to like an image.
 
@@ -44,7 +44,7 @@ To practice passing values through `props` in React, you will build the gallery 
 - Create a new **component** for the `GalleryList` and pass it the gallery data stored in `App` via `props`.
     - Iterate (loop over) the list of gallery data
     - Display all of the images on the screen.
-- Create a new **component** called `GalleryItem.js` and pass it the individual gallery item via `props`. 
+- Create a new **component** called `GalleryItem.js` and pass it the individual gallery item via `props`.
     - Update the `GalleryList` to use this component to display an image.
     - Swap the image with the description on click. Use [conditional rendering](https://reactjs.org/docs/conditional-rendering.html).
     - Display the number likes for each item and include a like button.
@@ -71,6 +71,6 @@ For each `feature` of your application, make a branch, work on the branch, and t
   - Server side route for posting an image
 - Ability to delete a gallery item
 - Add styling with Material-UI [https://material-ui.com/](https://material-ui.com/)
-- Implement [uppy](https://uppy.io/) for image upload 
+- Implement [uppy](https://uppy.io/) for image upload
 
 > NOTE: The above stretch goals are intended to be completed in order.

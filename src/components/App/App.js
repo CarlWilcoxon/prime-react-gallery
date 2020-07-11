@@ -7,6 +7,7 @@ class App extends Component {
   state = {
 
   }
+
   componentDidMount() {
     this.getPics();
   }
