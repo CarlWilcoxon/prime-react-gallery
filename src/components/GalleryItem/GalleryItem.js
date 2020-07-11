@@ -3,15 +3,22 @@ import './GalleryItem.css';
 
 class GalleryItem extends Component {
 
-  componentDidMount() {
-    console.log(this.props);
-    //DO stuff on load;
+  state = {
+    showPic: true
+  }
+
+  displayToggle = () => {
+    this.setState({ showPic: !this.state.showPic });
   }
 
   render() {
     return (
       <>
-      <img src={this.props.eachItem.path} alt={this.props.eachItem.description} />
+      {(this.state.showPic) ?
+      <img src={this.props.eachItem.path} alt={this.props.eachItem.description} onClick={this.displayToggle}/>
+      :
+      <p onClick={this.displayToggle}>{this.props.eachItem.description}</p>
+  }
       <button onClick={this.props.clickHandler} id={this.props.eachItem.id} >{this.props.eachItem.likes} Like</button>
       {/* Setup 'template' for gallery item display */}
       </>

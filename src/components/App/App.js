@@ -31,9 +31,11 @@ class App extends Component {
     })
   }
 
+//TODO onclick swap image with the description
+
   likePic = (event) => {
 
-    console.log( event.target.id ); //.prop.id
+    console.log( event.target.id );
     let picID = event.target.id;
 
     axios.put( '/gallery/like/' + picID )
