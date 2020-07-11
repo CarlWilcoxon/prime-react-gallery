@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './GalleryList.css';
+import GalleryItem from '../GalleryItem/GalleryItem';
 
 class GalleryList extends Component {
 
@@ -14,6 +15,7 @@ class GalleryList extends Component {
   render() {
     return (
       <>
+      {/* Setup map to go through array of gallery items */}
       </>
     );
   }

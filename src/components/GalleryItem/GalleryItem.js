@@ -15,6 +15,7 @@ class GalleryItem extends Component {
   render() {
     return (
       <>
+      {/* Setup 'template' for gallery item display */}
       </>
     );
   }
