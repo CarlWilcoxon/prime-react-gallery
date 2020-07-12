@@ -1,9 +1,7 @@
+const pg = require('pg');
 const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
-//const galleryItems = require('../modules/gallery.data');
-
-// DO NOT MODIFY THIS FILE FOR BASE MODE
 
 // PUT Route
 router.put('/like/:id', (req, res) => {
@@ -12,7 +10,7 @@ router.put('/like/:id', (req, res) => {
     const sqlText = `UPDATE gallery
                     SET likes = likes+1
                     WHERE id = $1`
-    pool.query(sqlText, galleryId)
+    pool.query( sqlText, [galleryId] )
       .then( (result) => {
         console.log('Picture liked #', galleryId);
         res.sendStatus(200);
