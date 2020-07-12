@@ -7,14 +7,10 @@ import GalleryList from '../GalleryList/GalleryList';
 class App extends Component {
 
   state = {
-    galleryArray: [{ id: 1,
-      path: 'images/goat_small.jpg',
-      description: 'Photo of a goat taken at Glacier National Park.',
-      likes: 0 },
-    { id: 2,
-      path: 'images/malaysia_beaches.jpg',
-      description: 'Me and my best friend on the beaches of Malaysia.',
-      likes: 8}]
+    galleryArray: [{ id: 0,
+      path: '',
+      description: '',
+      likes: 0}]
   }
 
   componentDidMount() {
@@ -33,7 +29,19 @@ class App extends Component {
     })
   }
 
-//TODO onclick swap image with the description
+  deletePic = (event) => {
+
+    console.log( event.target.id );
+    let picID = event.target.id;
+
+    axios.delete('/gallery/delete/' + picID )
+    .then( (response) => {
+      console.log( 'Pic deleted', picID );
+      this.getPics();
+    }).catch ( (err) => {
+      console.log( 'Failed to delete pictures', err );
+    })
+  }
 
   likePic = (event) => {
 
@@ -58,7 +66,8 @@ class App extends Component {
         </header>
         <br/>
         <GalleryForm />
-        <GalleryList pic={this.state.galleryArray} clickHandler={this.likePic} />
+        <GalleryList pic={this.state.galleryArray} clickHandler={this.likePic}
+        deleteClickHandler={this.deletePic} />
       </div>
     );
   }

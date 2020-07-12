@@ -23,6 +23,7 @@ class GalleryItem extends Component {
       </p>
   }
       <button onClick={this.props.clickHandler} id={this.props.eachItem.id} >{this.props.eachItem.likes} Like</button>
+      <button onClick={this.props.deleteHandler} id={this.props.eachItem.id} > Delete </button>
       {/* Setup 'template' for gallery item display */}
       </>
     );

@@ -7,7 +7,7 @@ const pool = require('../modules/pool');
 router.put('/like/:id', (req, res) => {
     console.log(req.params);
 
-    // use the id that was passed to determine which pic to like
+    // Add a like to the passed table row
     const galleryId = req.params.id;
 
     // add a like to the likes total on the table
@@ -29,6 +29,7 @@ router.put('/like/:id', (req, res) => {
 router.post('/', (req, res) => {
   console.log(req.body);
 
+  // Create a new table entry with the passed object
   const sqlText = `INSERT INTO gallery (path, description, likes)
   VALUES ( $1, $2, $3 )`
   pool.query(sqlText, [req.body.path, req.body.description, req.body.likes])
@@ -39,8 +40,27 @@ router.post('/', (req, res) => {
     .catch((error) => {
       console.log(`Error making database query ${sqlText}`, error);
       res.sendStatus(500); // Good server always responds
-    })
+  })
 }); // END POST Route
+
+// DELETE Route
+router.delete('/delete/:id', (req, res) => {
+  console.log(req.params);
+
+  // DELETE the table entry with passed id
+  const galleryId = req.params.id;
+  const sqlText = `DELETE FROM gallery
+                  WHERE id = $1`
+  pool.query( sqlText, [galleryId] )
+    .then( (result) => {
+      console.log('Deleted picture #', galleryId);
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log(`Error making database query ${sqlText}`, error);
+      res.sendStatus(500); // Good server always responds
+  })
+}); // END DELETE Route
 
 // GET Route
 router.get('/', (req, res) => {
