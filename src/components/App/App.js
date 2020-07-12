@@ -31,7 +31,19 @@ class App extends Component {
     })
   }
 
-//TODO onclick swap image with the description
+  deletePic = (event) => {
+
+    console.log( event.target.id );
+    let picID = event.target.id;
+
+    axios.delete('/gallery/delete/' + picID )
+    .then( (response) => {
+      console.log( 'Pic deleted', picID );
+      this.getPics();
+    }).catch ( (err) => {
+      console.log( 'Failed to delete pictures', err );
+    })
+  }
 
   likePic = (event) => {
 
@@ -55,7 +67,8 @@ class App extends Component {
         </header>
         <br/>
         <p>Gallery goes here</p>
-        <GalleryList pic={this.state.galleryArray} clickHandler={this.likePic} />
+        <GalleryList pic={this.state.galleryArray} clickHandler={this.likePic}
+        deleteHandler={this.deletePic} />
       </div>
     );
   }

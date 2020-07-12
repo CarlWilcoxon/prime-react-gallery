@@ -15,7 +15,8 @@ class GalleryList extends Component {
       {this.props.pic.map( eachItem =>
                 <GalleryItem key={eachItem.id}
                 eachItem={eachItem}
-                clickHandler={this.props.clickHandler} />)}
+                clickHandler={this.props.clickHandler}
+                deleteHandler={this.props.deleteHandler} />)}
       {/* Setup map to go through array of gallery items */}
       </>
     );
