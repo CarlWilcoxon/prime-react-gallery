@@ -29,11 +29,9 @@ class App extends Component {
     })
   }
 
-  deletePic = (event) => {
+  deletePic = (picID) => {
 
-    console.log( event.target.id );
-    let picID = event.target.id;
-
+    // Use the passed id property to tell the server -> database which pic to delete
     axios.delete('/gallery/delete/' + picID )
     .then( (response) => {
       console.log( 'Pic deleted', picID );
@@ -43,12 +41,9 @@ class App extends Component {
     })
   }
 
-  likePic = (event) => {
+  likePic = (picID) => {
 
-    //use the id property to tell the server -> database which pic to like
-    console.log( event.target.id );
-    let picID = event.target.id;
-
+    // Use the passed id property to tell the server -> database which pic to like
     axios.put( '/gallery/like/' + picID )
     .then( (response) => {
       console.log( 'Pic liked ', picID );
@@ -62,13 +57,13 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Gallery of my life</h1>
+          <h1 className="App-title">Trip to Korea</h1>
         </header>
         <br/>
         <GalleryForm />
-        <br />
+        <p className={'container'}>Bit of background. A couple years ago, when my best friend was teaching English in South Korea, I went to visit him on vacation.  It was pretty expensive to get over there, but once you are in Asia, it is really cheap to get around. So, we went on a month-long trip from Malaysia, to Japan, to Korea. </p>
         <GalleryList pic={this.state.galleryArray} clickHandler={this.likePic}
-        deleteClickHandler={this.deletePic} />
+        deletePic={this.deletePic} />
       </div>
     );
   }

@@ -58,13 +58,12 @@ class GalleryForm extends Component {
         <label>Description:</label>
         <input type="text" value={this.state.newPhoto.description}
           onChange={(event) => this.handleChangeFor(event, 'description')} />
-
+  <br/>
         <label>Photo Path:</label>
         <input type="text" value={this.state.newPhoto.path}
           onChange={(event) => this.handleChangeFor(event, 'path')} />
-
+  <br/>
         <button onClick={ this.handleSubmit }>Submit</button>
-{/* TODO make a form */}
       </form>
       </>
     );
