@@ -59,6 +59,19 @@ class GalleryItem extends Component {
         </CardContent>
         {/* Setup 'template' for gallery item display */}
       </Card>
+      <span>
+        {/* if the showPic boolean is true, display the picture, otherwise show the description */}
+        {(this.state.showPic) ?
+        <img src={this.props.eachItem.path} alt={this.props.eachItem.description} onClick={this.displayToggle}/>
+        :
+        <p onClick={this.displayToggle}> {/* if there is no description, display 'No description' */}
+          {(this.props.eachItem.description) ? this.props.eachItem.description: 'No description.'}
+        </p>
+    }
+        <button onClick={this.props.clickHandler} id={this.props.eachItem.id} >{this.props.eachItem.likes} Like</button>
+        <button onClick={this.props.deleteHandler} id={this.props.eachItem.id} > Delete </button>
+        {/* Setup 'template' for gallery item display */}
+      </span>
     );
   }
 }

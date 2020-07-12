@@ -67,6 +67,7 @@ class App extends Component {
         </header>
         <br/>
         <GalleryForm />
+        <br />
         <GalleryList pic={this.state.galleryArray} clickHandler={this.likePic}
         deleteClickHandler={this.deletePic} />
       </div>

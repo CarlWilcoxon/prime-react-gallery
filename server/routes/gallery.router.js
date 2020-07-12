@@ -2,6 +2,7 @@ const pg = require('pg');
 const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
+const fs = require('fs');
 
 // PUT Route
 router.put('/like/:id', (req, res) => {
@@ -28,6 +29,16 @@ router.put('/like/:id', (req, res) => {
 // POST Route
 router.post('/', (req, res) => {
   console.log(req.body);
+
+  // Check if the path is relative or absolute
+  // If absolute, move the file into the /public/images folder and update the path
+  testPath = req.body.path;
+  if (testPath.indexOf('/') == 0) {
+    fs.copyFile( testPath,
+      `/images${testPath.substring( testPath.lastIndexOf('/') )}`,
+      (err) => console.log(err));
+    req.body.path = `/images${testPath.substring( testPath.lastIndexOf('/') )}`;
+    }
 
   // Create a new table entry with the passed object
   const sqlText = `INSERT INTO gallery (path, description, likes)
