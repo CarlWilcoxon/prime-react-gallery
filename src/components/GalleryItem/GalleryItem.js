@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import 'fontsource-roboto';
 import './GalleryItem.css';
+import Button from '@material-ui/core/Button';
 
 class GalleryItem extends Component {
 
@@ -9,6 +11,10 @@ class GalleryItem extends Component {
 
   displayToggle = () => {
     this.setState({ showPic: !this.state.showPic });
+  }
+
+  likeButtonClicked = () => {
+    this.props.likePic(this.props.eachItem.id);
   }
 
   render() {
@@ -22,7 +28,7 @@ class GalleryItem extends Component {
         {(this.props.eachItem.description) ? this.props.eachItem.description: 'No description.'}
       </p>
   }
-      <button onClick={this.props.clickHandler} id={this.props.eachItem.id} >{this.props.eachItem.likes} Like</button>
+      <Button variant="contained" color="primary" onClick={this.likeButtonClicked} >{this.props.eachItem.likes} Likes</Button>
       {/* Setup 'template' for gallery item display */}
       </>
     );

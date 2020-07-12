@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'fontsource-roboto';
 import './GalleryList.css';
 import GalleryItem from '../GalleryItem/GalleryItem';
 
@@ -15,7 +16,7 @@ class GalleryList extends Component {
       {this.props.pic.map( eachItem =>
                 <GalleryItem key={eachItem.id}
                 eachItem={eachItem}
-                clickHandler={this.props.clickHandler} />)}
+                likePic={this.props.likePic} />)}
       {/* Setup map to go through array of gallery items */}
       </>
     );

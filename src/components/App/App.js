@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import 'fontsource-roboto';
 import './App.css';
 import GalleryList from '../GalleryList/GalleryList';
 
@@ -31,13 +32,8 @@ class App extends Component {
     })
   }
 
-//TODO onclick swap image with the description
-
-  likePic = (event) => {
-
-    console.log( event.target.id );
-    let picID = event.target.id;
-
+  // GalleryItem sends picID here, for the app to make the PUT request
+  likePic = (picID) => {
     axios.put( '/gallery/like/' + picID )
     .then( (response) => {
       console.log( 'Pic liked ', picID );
@@ -55,7 +51,7 @@ class App extends Component {
         </header>
         <br/>
         <p>Gallery goes here</p>
-        <GalleryList pic={this.state.galleryArray} clickHandler={this.likePic} />
+        <GalleryList pic={this.state.galleryArray} likePic={this.likePic} />
       </div>
     );
   }
