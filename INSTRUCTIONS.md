@@ -73,7 +73,7 @@ For each `feature` of your application, make a branch, work on the branch, and t
 
 [x] Ability to delete a gallery item
 
-[ ] Add styling with Material-UI [https://material-ui.com/](https://material-ui.com/)
+[/] Add styling with Material-UI [https://material-ui.com/](https://material-ui.com/)
 
 [ ] Implement [uppy](https://uppy.io/) for image upload
 

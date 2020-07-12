@@ -57,11 +57,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Gallery of my life</h1>
+          <h1 className="App-title">Trip to Korea</h1>
         </header>
         <br/>
         <GalleryForm />
-        <br />
+        <p className={'container'}>Bit of background. A couple years ago, when my best friend was teaching English in South Korea, I went to visit him on vacation.  It was pretty expensive to get over there, but once you are in Asia, it is really cheap to get around. So, we went on a month-long trip from Malaysia, to Japan, to Korea. </p>
         <GalleryList pic={this.state.galleryArray} clickHandler={this.likePic}
         deletePic={this.deletePic} />
       </div>

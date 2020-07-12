@@ -22,8 +22,8 @@ class GalleryList extends Component {
         alignItems="baseline"
       >
       {this.props.pic.map( eachItem =>
-                <Grid item xs={4}>
-                  <GalleryItem key={eachItem.id}
+                <Grid item xs={4} key={eachItem.id}>
+                  <GalleryItem
                   eachItem={eachItem}
                   likePic={this.props.clickHandler}
                   deleteHandler={this.props.deletePic} />
