@@ -21,6 +21,23 @@ router.put('/like/:id', (req, res) => {
     })
 }); // END PUT Route
 
+// DELETE Route
+router.delete('/delete/:id', (req, res) => {
+  console.log(req.params);
+  const galleryId = req.params.id;
+  const sqlText = `DELETE FROM gallery
+                  WHERE id = $1`
+  pool.query( sqlText, [galleryId] )
+    .then( (result) => {
+      console.log('Deleted picture #', galleryId);
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log(`Error making database query ${sqlText}`, error);
+      res.sendStatus(500); // Good server always responds
+  })
+}); // END DELETE Route
+
 // GET Route
 router.get('/', (req, res) => {
   const sqlText = `SELECT * FROM gallery ORDER BY id`;
