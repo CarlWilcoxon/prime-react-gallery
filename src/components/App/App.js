@@ -31,6 +31,7 @@ class App extends Component {
 
   deletePic = (event) => {
 
+    //use the id property to tell the server -> database which pic to delete
     console.log( event.target.id );
     let picID = event.target.id;
 

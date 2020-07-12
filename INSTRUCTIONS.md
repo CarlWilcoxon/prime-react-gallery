@@ -71,10 +71,13 @@ For each `feature` of your application, make a branch, work on the branch, and t
   [x] Client side form (use absolute URL for images)
   [x] Server side route for posting an image
 
-[ ] Ability to delete a gallery item
+[x] Ability to delete a gallery item
 
 [ ] Add styling with Material-UI [https://material-ui.com/](https://material-ui.com/)
 
 [ ] Implement [uppy](https://uppy.io/) for image upload
 
 > NOTE: The above stretch goals are intended to be completed in order.
+
+
+ TRY SPAN WITH 30% WIDTH
