@@ -17,6 +17,8 @@ class GalleryList extends Component {
                 <GalleryItem key={eachItem.id}
                 eachItem={eachItem}
                 likePic={this.props.likePic} />)}
+                clickHandler={this.props.clickHandler}
+                deleteHandler={this.props.deleteHandler} />)}
       {/* Setup map to go through array of gallery items */}
       </>
     );

@@ -17,6 +17,10 @@ class GalleryItem extends Component {
     this.props.likePic(this.props.eachItem.id);
   }
 
+  deleteButtonClicked = () => {
+    this.props.deleteHandler(this.props.eachItem.id)
+  }
+
   render() {
     return (
       <>
@@ -29,6 +33,7 @@ class GalleryItem extends Component {
       </p>
   }
       <Button variant="contained" color="primary" onClick={this.likeButtonClicked} >{this.props.eachItem.likes} Likes</Button>
+      <Button onClick={this.deleteButtonClicked} > Delete </Button>
       {/* Setup 'template' for gallery item display */}
       </>
     );
