@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'fontsource-roboto';
 import './GalleryList.css';
 import GalleryItem from '../GalleryItem/GalleryItem';
+import { Grid } from '@material-ui/core';
 
 class GalleryList extends Component {
 
@@ -13,13 +14,22 @@ class GalleryList extends Component {
   render() {
     return (
       <>
+      <Grid
+        container
+        spacing={3}
+        direction="row"
+        justify="space-around"
+        alignItems="baseline"
+      >
       {this.props.pic.map( eachItem =>
-                <GalleryItem key={eachItem.id}
+                <Grid item xs={4}>
+                  <GalleryItem key={eachItem.id}
                   eachItem={eachItem}
-                  likePic={this.props.likePic}
-                  clickHandler={this.props.clickHandler}
-                  deleteHandler={this.props.deleteHandler} />)}
+                  likePic={this.props.clickHandler}
+                  deleteHandler={this.props.deletePic} />
+                </Grid>)}
       {/* Setup map to go through array of gallery items */}
+      </Grid>
       </>
     );
   }

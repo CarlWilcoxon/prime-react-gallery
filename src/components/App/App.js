@@ -29,12 +29,9 @@ class App extends Component {
     })
   }
 
-  deletePic = (event) => {
+  deletePic = (picID) => {
 
-    //use the id property to tell the server -> database which pic to delete
-    console.log( event.target.id );
-    let picID = event.target.id;
-
+    // Use the passed id property to tell the server -> database which pic to delete
     axios.delete('/gallery/delete/' + picID )
     .then( (response) => {
       console.log( 'Pic deleted', picID );
@@ -44,12 +41,9 @@ class App extends Component {
     })
   }
 
-  likePic = (event) => {
+  likePic = (picID) => {
 
-    //use the id property to tell the server -> database which pic to like
-    console.log( event.target.id );
-    let picID = event.target.id;
-
+    // Use the passed id property to tell the server -> database which pic to like
     axios.put( '/gallery/like/' + picID )
     .then( (response) => {
       console.log( 'Pic liked ', picID );
@@ -69,7 +63,7 @@ class App extends Component {
         <GalleryForm />
         <br />
         <GalleryList pic={this.state.galleryArray} clickHandler={this.likePic}
-        deleteClickHandler={this.deletePic} />
+        deletePic={this.deletePic} />
       </div>
     );
   }
