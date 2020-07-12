@@ -67,9 +67,9 @@ For each `feature` of your application, make a branch, work on the branch, and t
     [x] name your database `react_gallery`
     [x] include a `database.sql` file documenting your database tables
 
-[ ] Add a form (new **component**) that allows a user to POST a new gallery item
-  [ ] Client side form (use absolute URL for images)
-  [ ] Server side route for posting an image
+[x] Add a form (new **component**) that allows a user to POST a new gallery item
+  [x] Client side form (use absolute URL for images)
+  [x] Server side route for posting an image
 
 [ ] Ability to delete a gallery item
 

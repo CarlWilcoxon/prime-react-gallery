@@ -25,6 +25,23 @@ router.put('/like/:id', (req, res) => {
     })
 }); // END PUT Route
 
+// POST Route
+router.post('/', (req, res) => {
+  console.log(req.body);
+
+  const sqlText = `INSERT INTO gallery (path, description, likes)
+  VALUES ( $1, $2, $3 )`
+  pool.query(sqlText, [req.body.path, req.body.description, req.body.likes])
+    .then(( result ) => {
+      console.log('Added photo');
+      res.sendStatus(201);
+    })
+    .catch((error) => {
+      console.log(`Error making database query ${sqlText}`, error);
+      res.sendStatus(500); // Good server always responds
+    })
+}); // END POST Route
+
 // GET Route
 router.get('/', (req, res) => {
   // get all the pics and order them by their id number
