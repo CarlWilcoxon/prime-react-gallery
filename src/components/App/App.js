@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import GalleryForm from '../GalleryForm/GalleryForm';
 import GalleryList from '../GalleryList/GalleryList';
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
 
   getPics = () => {
 
+    // GET request to get all the pics from the database
     axios.get('/gallery')
     .then( (response) => {
       console.log( 'Got pics', response.data);
@@ -35,6 +37,7 @@ class App extends Component {
 
   likePic = (event) => {
 
+    //use the id property to tell the server -> database which pic to like
     console.log( event.target.id );
     let picID = event.target.id;
 
@@ -54,7 +57,7 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br/>
-        <p>Gallery goes here</p>
+        <GalleryForm />
         <GalleryList pic={this.state.galleryArray} clickHandler={this.likePic} />
       </div>
     );

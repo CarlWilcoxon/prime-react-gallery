@@ -6,9 +6,13 @@ const pool = require('../modules/pool');
 // PUT Route
 router.put('/like/:id', (req, res) => {
     console.log(req.params);
+
+    // use the id that was passed to determine which pic to like
     const galleryId = req.params.id;
+
+    // add a like to the likes total on the table
     const sqlText = `UPDATE gallery
-                    SET likes = likes+1
+                    SET likes = likes + 1
                     WHERE id = $1`
     pool.query( sqlText, [galleryId] )
       .then( (result) => {
@@ -23,6 +27,7 @@ router.put('/like/:id', (req, res) => {
 
 // GET Route
 router.get('/', (req, res) => {
+  // get all the pics and order them by their id number
   const sqlText = `SELECT * FROM gallery ORDER BY id`;
   pool.query(sqlText)
     .then(( result ) => {
